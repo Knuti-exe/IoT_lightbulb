@@ -112,8 +112,13 @@ void loop() {
 
     now = esp_timer_get_time();
 
-    if (now - last_temp_info > 60 * 1000000) telnet.printf("MCU's temperature: %.4f", 
-      coreTemp);
+    if (now - last_temp_info > 60 * 1000000) {
+      
+      telnet.printf("MCU's temperature: %.4f\n\r", coreTemp);
+      
+      last_temp_info = now;
+
+    }
 
     if (now - last_temp_check > 5 * 1000000) {
 
