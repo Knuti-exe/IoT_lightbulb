@@ -151,6 +151,9 @@ void loop() {
           
         } 
       }
+
+      while (telnet && telnet.available()) telnet.read();
+
     
 
     vTaskDelay(pdMS_TO_TICKS(100));
